@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breadboard Life</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet" />
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+<div class="app">
+  <h2 class="sr-only">Breadboard Life Visualizer — interactive board showing flowers (friend hours), Arduino parts (work/school hours), and pixelation (music dB)</h2>
+
+  <div class="header">
+    <h1>breadboard life</h1>
+    <p>flowers = friend hours &nbsp;·&nbsp; circuits = work / school &nbsp;·&nbsp; pixel = music dB</p>
+  </div>
+
+  <div class="controls">
+    <div class="control-group">
+      <div class="control-label">
+        Friend Hours
+        <span class="val" id="flower-val">5</span>
+      </div>
+      <input type="range" id="flower-slider" min="0" max="10" value="5" step="1" />
+      <div class="control-desc">Number of flowers on the board</div>
+    </div>
+    <div class="control-group">
+      <div class="control-label">
+        Work / School
+        <span class="val" id="arduino-val">5</span>
+      </div>
+      <input type="range" id="arduino-slider" min="0" max="10" value="5" step="1" />
+      <div class="control-desc">Number of Arduino parts on the board</div>
+    </div>
+    <div class="control-group">
+      <div class="control-label">
+        Music dB
+        <span class="val" id="pixel-val">0</span>
+      </div>
+      <input type="range" id="pixel-slider" min="0" max="20" value="0" step="1" />
+      <div class="control-desc">Pixelation level across the board</div>
+    </div>
+  </div>
+
+  <div class="board-wrap">
+    <canvas id="board-canvas"></canvas>
+  </div>
+
+  <div class="board-actions">
+    <button class="btn" id="randomize-btn">Randomize layout</button>
+    <button class="btn" id="download-btn">Download PNG</button>
+    <button class="btn accent" id="archive-btn">Save to archive</button>
+  </div>
+
+  <div class="archive-section">
+    <div class="archive-header">Archive</div>
+    <div id="empty-msg" class="empty-archive">
+      No boards saved yet. Adjust the sliders and hit "Save to archive".
+    </div>
+    <div class="archive-grid" id="archive-grid" style="display:none"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
