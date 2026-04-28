@@ -1,8 +1,8 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #f5f2ec;
-      --bg-secondary: #ece8df;
+      --bg: #f2e5f4;
+      --bg-secondary: #ffffff;
       --surface: #ffffff;
       --border: rgba(0,0,0,0.15);
       --border-strong: rgba(0,0,0,0.5);
