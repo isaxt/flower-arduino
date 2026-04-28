@@ -229,7 +229,7 @@ for (const item of layout) {
 }
 
     // Apply pixelation last
-    const pixelSize = Math.floor(pixelVal * 2.5) + 1;
+    const pixelSize = Math.floor(pixelVal * 1.2) + 1;
     if (pixelSize > 2) applyPixelation(pixelSize);
   }
 
@@ -271,16 +271,17 @@ for (const item of layout) {
   ───────────────────────────────────────────── */
   const archiveBoards = [];
 
-  function saveToArchive() {
+function saveToArchive() {
     const fv = parseInt(document.getElementById('flower-slider').value);
     const av = parseInt(document.getElementById('arduino-slider').value);
     const pv = parseInt(document.getElementById('pixel-slider').value);
 
-    // Snapshot at thumbnail size
     const thumb = document.createElement('canvas');
-    thumb.width  = 360;
-    thumb.height = 270;
-    thumb.getContext('2d').drawImage(canvas, 0, 0, 360, 270);
+    const thumbW = 360;
+    const thumbH = Math.round(thumbW * (canvas.height / canvas.width)); // ← auto height
+    thumb.width  = thumbW;
+    thumb.height = thumbH;
+    thumb.getContext('2d').drawImage(canvas, 0, 0, thumbW, thumbH);
 
     archiveBoards.unshift({
       dataUrl: thumb.toDataURL('image/png'),
