@@ -1,0 +1,173 @@
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f2e5f4;
+      --surface: #ffffff;
+      --border: rgba(0,0,0,0.15);
+      --border-strong: rgba(0,0,0,0.5);
+      --text: #1a1a18;
+      --text-muted: #121211;
+      --accent: #350505;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161613;
+        --surface: #252520;
+        --border: rgba(255,255,255,0.1);
+        --border-strong: rgba(255,255,255,0.22);
+        --text: #f0ede6;
+        --text-muted: #9b9890;
+        --accent: #f0ede6;
+      }
+    }
+
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .app {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--text); }
+
+    /* ── Header ── */
+    .header { margin-bottom: 2.5rem; }
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text);
+      letter-spacing: 0.5px;
+    }
+    .header p {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Section label ── */
+    .section-header {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-header::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: var(--border);
+    }
+
+    /* ── Grid ── */
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    /* ── Card ── */
+    .board-card {
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.15s, transform 0.15s;
+      background: var(--surface);
+    }
+    .board-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-3px);
+    }
+    .board-card img {
+      width: 100%;
+      display: block;
+    }
+    .card-meta {
+      padding: 10px 12px;
+      border-top: 0.5px solid var(--border);
+    }
+    .card-meta .label {
+      font-size: 11px;
+      color: var(--text);
+      display: block;
+      letter-spacing: 0.5px;
+    }
+    .card-meta .hint {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 3px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── Lightbox ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.82);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 86vh;
+      border-radius: var(--radius-lg);
+      border: 0.5px solid rgba(255,255,255,0.15);
+      display: block;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: none;
+      border: 0.5px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      letter-spacing: 1px;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.08); }
+    .lightbox-label {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 1px;
+    }
