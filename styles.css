@@ -264,3 +264,24 @@
       height: 1px;
       overflow: hidden;
     }
+
+    /* ── Archive link button (top-right) ── */
+.archive-link {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 100;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  padding: 8px 16px;
+  border: 0.5px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.archive-link:hover { background: var(--bg-secondary); }
